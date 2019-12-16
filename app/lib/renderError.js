@@ -1,4 +1,5 @@
 function renderError(reply, errObj) {
+  console.log('errObj is', errObj);
   if (errObj.name === 'RecordNotFoundError') {
     reply.code(404).send({ errors: [errObj.message] });
   }
