@@ -2,13 +2,8 @@
 
 module.exports = {
   development: {
-    client: 'mysql',
-    connection: {
-      host: '127.0.0.1',
-      user: 'root',
-      password: 'edison',
-      database: 'wars'
-    },
+    client: 'pg',
+    connection: 'mysql://root:edison@localhost:5432/wars',
     pool: { min: 0, max: 7 },
     migrations: {
       tableName: 'knex_migrations',
@@ -19,7 +14,7 @@ module.exports = {
     }
   },
   production: {
-    client: 'mysql',
+    client: 'pg',
     connection: process.env.DATABASE_URL,
     pool: {
       min: 0,

@@ -1,4 +1,4 @@
-const Store = require('openrecord/store/mysql');
+const Store = require('openrecord/store/postgres');
 const TypeDetial = require('../app/models/typeDetial.model');
 const Wing = require('../app/models/wing.model');
 const EmployeeInfo = require('../app/models/employeeInfo.model');
@@ -8,13 +8,8 @@ const ForeCast = require('../app/models/forecast.model');
 const ParadeStatement = require('../app/models/paradeStatement.model');
 
 const store = new Store({
-  connection: {
-    host: 'localhost',
-    type: 'mysql',
-    user: 'root',
-    password: 'edison',
-    database: 'wars'
-  },
+  client: 'pg',
+  connection: process.env.DATABASE_URL,
   models: [Wing, TypeDetial, EmployeeInfo, Unit, UnitInfo, ForeCast, ParadeStatement],
   inflection: {
     wings: 'wing',

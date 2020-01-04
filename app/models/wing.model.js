@@ -1,5 +1,5 @@
-const Store = require('openrecord/store/mysql');
+const Store = require('openrecord/store/postgres');
 
-class Wing extends Store.BaseModel {}
+class Wing extends Store.BaseModel { }
 
 module.exports = Wing;

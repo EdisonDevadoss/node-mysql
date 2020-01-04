@@ -1,4 +1,4 @@
-const Store = require('openrecord/store/mysql');
+const Store = require('openrecord/store/postgres');
 
 class Unit extends Store.BaseModel {
   static definition() {
