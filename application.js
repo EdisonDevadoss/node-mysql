@@ -6,7 +6,11 @@ const cors = require('fastify-cors');
 const swaggerOptions = require('./app/lib/swagger');
 const wingsRoutes = require('./app/routes/wings.routes');
 const employeeInfos = require('./app/routes/employeeInfos.routes');
-const unitsInfos = require('./app/routes/units.routes');
+const units = require('./app/routes/units.routes');
+const unitInfos = require('./app/routes/unitInfos.routes');
+const paradeStatements = require('./app/routes/paradeStatements.routes');
+const forecasts = require('./app/routes/forecasts.routes');
+
 
 function build() {
   fastify.register(cors, {
@@ -21,7 +25,10 @@ function build() {
 
   fastify.register(wingsRoutes, { prefix: '/v1' });
   fastify.register(employeeInfos, { prefix: '/v1' });
-  fastify.register(unitsInfos, { prefix: '/v1' });
+  fastify.register(units, { prefix: '/v1' });
+  fastify.register(unitInfos, { prefix: '/v1' });
+  fastify.register(paradeStatements, { prefix: '/v1' });
+  fastify.register(forecasts, { prefix: '/v1' });
 
   fastify.get('/', async (req, res) => {
     res.send({ hello: 'world' });

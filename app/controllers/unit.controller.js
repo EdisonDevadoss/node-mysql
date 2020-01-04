@@ -13,6 +13,17 @@ exports.list = (req, reply) => {
     });
 };
 
+exports.unitWithAddress = (req, reply) => {
+  Unit.getUnitWithAddress()
+    .then((units) => {
+      reply.code(200).send(units);
+    })
+    .catch((error) => {
+      renderError(reply, error);
+      // reply.code(200).send(stateUnits);
+    });
+};
+
 exports.detailUnit = (req, reply) => {
   const { query } = req;
   console.log('query is', req.query);
